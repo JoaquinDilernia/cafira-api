@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clients",
+  "info": {
+    "singularName": "client",
+    "pluralName": "clients",
+    "displayName": "Client",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string",
+      "required": true
+    },
+    "Apellido": {
+      "type": "string",
+      "required": true
+    },
+    "Empresa": {
+      "type": "string",
+      "required": true
+    },
+    "Cuil": {
+      "type": "biginteger"
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Comercio",
+        "Walmart",
+        "Prestigio"
+      ],
+      "required": true
+    },
+    "vendedor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vendedor.vendedor",
+      "inversedBy": "clients"
+    }
+  }
+}
